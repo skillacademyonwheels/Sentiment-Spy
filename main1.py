@@ -1,9 +1,13 @@
 from textblob import TextBlob
+import colorama
+from colorama import Fore,Style
 
-print("Welcome to the Sentiment Analysis Tool!")
+colorama.init()
 
-user_name = input("Please enter your name: ")
-print(f"Hello, {user_name}! Let's analyze the sentiment of your text.") 
+print(f"{Fore.CYAN} -------Welcome to the Sentiment Analysis Tool!--------{Style.RESET_ALL}")
+
+user_name = input(f"{Fore.GREEN} Please enter your name: ")
+print(f"{Fore.WHITE} Hello, {user_name}! Let's analyze the sentiment of your text.{Style.RESET_ALL}") 
 
 conversation_history = []
 
@@ -18,7 +22,7 @@ while True:
     blob = TextBlob(user_input)
     sentiment = blob.sentiment
 
-    response = f"Sentiment Analysis:\n- Polarity: {sentiment.polarity}\n- Subjectivity: {sentiment.subjectivity}"
+    response = f"{Fore.LIGHTCYAN_EX} ---Sentiment Analysis:\n- Polarity: {sentiment.polarity}\n- Subjectivity: {sentiment.subjectivity}--{Style.RESET_ALL}"
     print(response)
 
     conversation_history.append(f"User: {user_input} \t Bot: {response}")
